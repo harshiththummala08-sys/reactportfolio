@@ -1,16 +1,74 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="React portfolio of Thummala Harshith Reddy, B.Tech student and aspiring software developer."
-    />
-    <title>Thummala Harshith Reddy | React Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Thummala Harshith Reddy, B.Tech CSE student and aspiring software developer." />
+  <title>Thummala Harshith Reddy | Portfolio</title>
+  <style>
+    :root { color-scheme: dark; --bg:#08111f; --panel:#101c2e; --panel2:#13243a; --text:#edf4ff; --muted:#9db0c9; --line:#243952; --accent:#5eead4; --accent2:#f59e0b; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,Segoe UI,Arial,sans-serif; background:linear-gradient(135deg,#07101d,#111827 45%,#0f172a); color:var(--text); line-height:1.6; }
+    a { color:inherit; }
+    .wrap { width:min(1120px,92vw); margin:0 auto; }
+    header { position:sticky; top:0; z-index:5; background:rgba(8,17,31,.88); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+    nav { min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.08em; }
+    .mark { width:42px; height:42px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg,var(--accent),#60a5fa); color:#04111f; }
+    .links { display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-weight:600; font-size:.95rem; }
+    .links a { text-decoration:none; }
+    .hero { padding:82px 0 54px; display:grid; grid-template-columns:1.3fr .7fr; gap:42px; align-items:center; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; font-weight:800; }
+    h1 { margin:10px 0 16px; font-size:clamp(2.6rem,7vw,5.8rem); line-height:.95; letter-spacing:-.03em; }
+    .lead { color:var(--muted); font-size:1.12rem; max-width:680px; }
+    .actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:28px; }
+    .btn { text-decoration:none; border:1px solid var(--line); padding:12px 18px; border-radius:10px; font-weight:800; background:var(--panel); }
+    .btn.primary { background:var(--accent); color:#04111f; border-color:transparent; }
+    .card { background:linear-gradient(180deg,var(--panel),rgba(16,28,46,.78)); border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 24px 70px rgba(0,0,0,.28); }
+    .photo { aspect-ratio:1; border-radius:18px; background:linear-gradient(135deg,#1e293b,#0f766e); display:grid; place-items:center; font-size:5rem; font-weight:900; color:#dffbf7; margin-bottom:18px; overflow:hidden; }
+    .photo img { width:100%; height:100%; object-fit:cover; display:block; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px; }
+    .stat { background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:14px; padding:14px; }
+    .stat strong { display:block; font-size:1.3rem; color:var(--accent); }
+    section { padding:54px 0; }
+    .section-title { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:22px; }
+    h2 { margin:0; font-size:clamp(1.8rem,4vw,3rem); letter-spacing:-.02em; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .skill span, .tag { display:inline-block; margin:6px 6px 0 0; padding:7px 10px; border-radius:999px; background:rgba(94,234,212,.1); border:1px solid rgba(94,234,212,.25); color:#c7fff5; font-weight:700; font-size:.88rem; }
+    .project-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .project h3, .card h3 { margin:0 0 8px; font-size:1.28rem; }
+    .project p, .card p { color:var(--muted); margin:0 0 14px; }
+    .project-links { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .project-links a { font-size:.9rem; text-decoration:none; color:#06121f; background:var(--accent); padding:8px 12px; border-radius:9px; font-weight:800; }
+    .project-links a.secondary { background:var(--panel2); color:var(--text); border:1px solid var(--line); }
+    .contact { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    footer { border-top:1px solid var(--line); color:var(--muted); padding:26px 0 40px; text-align:center; }
+    @media (max-width:850px) { .hero,.contact { grid-template-columns:1fr; } .grid,.project-grid { grid-template-columns:1fr; } nav { align-items:flex-start; flex-direction:column; padding:14px 0; } .stats { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header><nav class="wrap"><div class="brand"><div class="mark">HR</div><span>Harshith Portfolio</span></div><div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></nav></header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">B.Tech CSE Student - KLH University</div>
+        <h1>Thummala Harshith Reddy</h1>
+        <p class="lead">I am a first-year Computer Science and Engineering student building a strong foundation in programming, frontend development, data structures, and practical GitHub projects.</p>
+        <div class="actions"><a class="btn primary" href="#projects">View Projects</a><a class="btn" href="Thummala-Harshith-Reddy-Resume.pdf" download>Download Resume</a><a class="btn" href="https://github.com/harshiththummala08-sys" target="_blank" rel="noreferrer">GitHub Profile</a></div>
+        <div class="stats"><div class="stat"><strong>React</strong>Frontend</div><div class="stat"><strong>Java</strong>Programming</div><div class="stat"><strong>DSA</strong>Learning</div></div>
+      </div>
+      <aside class="card"><div class="photo"><img src="assets/profile.jpg" alt="Thummala Harshith Reddy" onerror="this.remove();this.parentElement.textContent='HR';"></div><h3>Currently focused on</h3><p>React, JavaScript, Java, Python, C, HTML, CSS, responsive UI, GitHub projects, and data structures.</p></aside>
+    </section>
+    <section id="about"><div class="section-title"><div><div class="eyebrow">About</div><h2>Student developer profile.</h2></div></div><div class="grid"><article class="card"><h3>Who I am</h3><p>An enthusiastic CSE student interested in software development, web technologies, and problem solving.</p></article><article class="card"><h3>Education</h3><p>First-year B.Tech student in Computer Science and Engineering at KLH University.</p></article><article class="card"><h3>Goal</h3><p>Build useful projects, improve coding practice, and prepare for internships and real-world development work.</p></article></div></section>
+    <section id="skills"><div class="section-title"><div><div class="eyebrow">Skills</div><h2>Tools I am building confidence with.</h2></div></div><div class="grid"><article class="card skill"><h3>Languages</h3><span>Java</span><span>C</span><span>Python</span><span>JavaScript</span></article><article class="card skill"><h3>Frontend</h3><span>React</span><span>HTML</span><span>CSS</span><span>Responsive UI</span></article><article class="card skill"><h3>Core Practice</h3><span>DSA</span><span>Problem Solving</span><span>GitHub</span></article></div></section>
+    <section id="projects"><div class="section-title"><div><div class="eyebrow">Projects</div><h2>Selected GitHub work.</h2></div></div><div class="project-grid">
+      <article class="card project"><h3>Fittrack Pro</h3><p>Fitness tracking website focused on health tracking and clean frontend layout.</p><span class="tag">JavaScript</span><span class="tag">CSS</span><div class="project-links"><a href="https://harshiththummala08-sys.github.io/Fittrack-pro/" target="_blank" rel="noreferrer">Live</a><a class="secondary" href="https://github.com/harshiththummala08-sys/Fittrack-pro" target="_blank" rel="noreferrer">Code</a></div></article>
+      <article class="card project"><h3>Harshith Portfolio</h3><p>Earlier personal portfolio project built with HTML and CSS.</p><span class="tag">HTML</span><span class="tag">CSS</span><div class="project-links"><a href="https://harshiththummala08-sys.github.io/harshith/" target="_blank" rel="noreferrer">Live</a><a class="secondary" href="https://github.com/harshiththummala08-sys/harshith" target="_blank" rel="noreferrer">Code</a></div></article>
+      <article class="card project"><h3>Gym Project</h3><p>A gym-themed frontend website with layout and interaction practice.</p><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><div class="project-links"><a href="https://harshiththummala08-sys.github.io/projectgymharshith/" target="_blank" rel="noreferrer">Live</a><a class="secondary" href="https://github.com/harshiththummala08-sys/projectgymharshith" target="_blank" rel="noreferrer">Code</a></div></article>
+      <article class="card project"><h3>Sorting Comparison</h3><p>Sorting comparison project for understanding algorithm behavior.</p><span class="tag">HTML</span><span class="tag">Algorithms</span><div class="project-links"><a href="https://harshiththummala08-sys.github.io/SortingComparision/" target="_blank" rel="noreferrer">Live</a><a class="secondary" href="https://github.com/harshiththummala08-sys/SortingComparision" target="_blank" rel="noreferrer">Code</a></div></article>
+    </div></section>
+    <section id="contact"><div class="contact"><div><div class="eyebrow">Contact</div><h2>Let us connect.</h2><p class="lead">Reach out for projects, learning opportunities, internship discussions, or collaboration.</p></div><div class="card"><p><strong>Email:</strong> <a href="mailto:thummala.harshith@klh.edu.in">thummala.harshith@klh.edu.in</a></p><p><strong>GitHub:</strong> <a href="https://github.com/harshiththummala08-sys" target="_blank" rel="noreferrer">harshiththummala08-sys</a></p><p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/harshith-thummala-4a87283ab" target="_blank" rel="noreferrer">Harshith Thummala</a></p></div></div></section>
+  </main>
+  <footer>Built for Thummala Harshith Reddy.</footer>
+</body>
 </html>
